@@ -18,7 +18,9 @@ server <- function(input, output) {
     tag <- input$tag |> str_trim()
 
     if (valid_tag(tag)) {
-      tag
+      str_c("Tag:", tag) |>
+        get_item_by_title() |>
+        as_json()
     } else {
       "Enter valid tag."
     }
