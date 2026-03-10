@@ -1126,7 +1126,10 @@
   },
   "files": {
     "app.R": {
-      "checksum": "4d73c8d7e26de2ac7b1e97e890854656"
+      "checksum": "fc21e776ded28f807c121b96ce3d580a"
+    },
+    "R/utils.R": {
+      "checksum": "f52ff3b7941ed444da301b03302ab677"
     }
   },
   "users": null
