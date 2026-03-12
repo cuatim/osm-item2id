@@ -1,5 +1,4 @@
 library(shiny)
-library(stringr)
 
 examples <- c("amenity=cafe", "playground=playhouse", "highway=cycleway")
 
@@ -37,10 +36,10 @@ server <- function(input, output) {
   })
 
   output$code <- renderText({
-    tag <- input$tag |> str_trim()
+    tag <- input$tag |> stringr::str_trim()
 
     if (valid_tag(tag)) {
-      str_c("Tag:", tag) |>
+      stringr::str_c("Tag:", tag) |>
         get_item() |>
         to_preset() |>
         as_json()
