@@ -26,3 +26,13 @@ get_item <- function(x) {
     )
   }
 }
+
+pluck_v <- function(x, ...) {
+  purrr::pluck(x, "mainsnak", "datavalue", "value", ...)
+}
+
+pluck_s <- function(x, p, n, ...) {
+  x |>
+    purrr::pluck("claims", p, n) |>
+    pluck_v(...)
+}

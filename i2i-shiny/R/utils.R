@@ -1,3 +1,9 @@
+plain_string <- function(x) {
+  x |>
+    stringr::str_to_lower() |>
+    stringr::str_remove_all("[^a-z]+")
+}
+
 valid_tag <- function(x) {
   stringr::str_detect(x, "^[a-z]+([_:][a-z]+)*=[a-z]+([_-][a-z]+)*$")
 }
