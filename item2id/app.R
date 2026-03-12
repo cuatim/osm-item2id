@@ -1,11 +1,14 @@
 library(shiny)
 library(stringr)
 
+example <- "amenity=cafe"
+
 ui <- fluidPage(
   titlePanel("item2iD"),
   sidebarLayout(
     sidebarPanel(
-      textInput("tag", "Tag:", placeholder = "key=value")
+      textInput("tag", "Tag:", placeholder = "key=value"),
+      p("e.g.,", actionLink("example", example))
     ),
     mainPanel(
       verbatimTextOutput("code")
@@ -14,6 +17,10 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
+  observeEvent(input$example, {
+    updateTextInput(inputId = "tag", value = example)
+  })
+
   output$code <- renderText({
     tag <- input$tag |> str_trim()
 
