@@ -47,16 +47,28 @@ server <- function(input, output) {
     updateTextInput(inputId = "tag", value = examples[3])
   })
 
-  preset <- reactive({
+  tag <- reactive({
     tag <- input$tag |> stringr::str_trim()
 
-    if (valid_tag(tag)) {
-      stringr::str_c("Tag:", tag) |>
-        get_item() |>
-        to_preset()
-    } else {
-      "Enter valid tag."
-    }
+    req(stringr::str_detect(tag, "^.+=.+$"))
+
+    tag
+  })
+
+  item <- reactive({
+    validate(
+      need(valid_tag(tag()), "Invalid tag.")
+    )
+
+    stringr::str_c("Tag:", tag()) |> get_item() |> structure(tag = tag())
+  })
+
+  preset <- reactive({
+    validate(
+      need(identical(purrr::pluck(item(), "type"), "item"), "Data item not found.")
+    )
+
+    item() |> to_preset()
   })
 
   output$code <- renderText({
@@ -64,10 +76,10 @@ server <- function(input, output) {
   })
 
   output$header <- renderUI({
-    tag <- attr(preset(), "tag")
+    tag <- tag()
 
     h3(
-      "Preset draft for",
+      "Preset draft for tag ",
       code(a(
         tag,
         href = glue::glue("https://wiki.openstreetmap.org/wiki/Tag:{tag}")
