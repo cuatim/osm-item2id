@@ -2,6 +2,7 @@ library(shiny)
 
 i2i_repo <- "https://github.com/cuatim/osm-item2id"
 id_repo <- "https://github.com/openstreetmap/id-tagging-schema"
+osm_wiki <- "https://wiki.openstreetmap.org/wiki"
 examples <- c("amenity=cafe", "playground=playhouse", "highway=cycleway")
 
 ui <- fluidPage(
@@ -9,7 +10,7 @@ ui <- fluidPage(
     title = span(
       a("i2i", href = i2i_repo),
       "- convert ",
-      a("OSM wikibase data items", href = "https://wiki.openstreetmap.org/wiki/Data_items"),
+      a("OSM wikibase data items", href = glue::glue("{osm_wiki}/Data_items")),
       "to",
       a("iD Tagging Schema", href = id_repo),
       "entries"
@@ -93,7 +94,7 @@ server <- function(input, output) {
       "Preset draft for tag ",
       code(a(
         tag,
-        href = glue::glue("https://wiki.openstreetmap.org/wiki/Tag:{tag}")
+        href = glue::glue("{osm_wiki}/Tag:{tag}")
       )),
     )
   })
@@ -107,7 +108,7 @@ server <- function(input, output) {
     tags$ul(
       tags$li(
         "OSM wikibase data item:",
-        a(qid, href = glue::glue("https://wiki.openstreetmap.org/wiki/Item:{qid}"))
+        a(qid, href = glue::glue("{osm_wiki}/Item:{qid}"))
       ),
       tags$li(
         "iD Tagging Schema path:",
