@@ -28,7 +28,8 @@ ui <- fluidPage(
     mainPanel(
       uiOutput("header"),
       verbatimTextOutput("code"),
-      uiOutput("footer")
+      uiOutput("footer"),
+      p(a("Help", href = "https://github.com/cuatim/osm-item2id#creating-a-new-preset"))
     )
   )
 )
