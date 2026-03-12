@@ -75,6 +75,7 @@ to_preset <- function(item, get_item_callback = get_item) {
       fields = list(),
       moreFields = as.list(fields)
     ),
+    qid = purrr::chuck(item, "id"),
     tag = tag,
     key = key,
     value = value

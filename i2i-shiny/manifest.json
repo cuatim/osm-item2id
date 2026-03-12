@@ -1622,10 +1622,10 @@
   },
   "files": {
     "app.R": {
-      "checksum": "60a8a45e79084978507ddd07d8f15813"
+      "checksum": "108c74241ed91085a7e104dc11c82652"
     },
     "R/preset.R": {
-      "checksum": "51a5b0a723e11906f6556b555f513e05"
+      "checksum": "5bf8391e68699bf4b13e0d1017235e5c"
     },
     "R/utils.R": {
       "checksum": "1b0d4ea58c39998091a87137cd38eec8"
