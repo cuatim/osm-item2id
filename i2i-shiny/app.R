@@ -1,14 +1,21 @@
 library(shiny)
 library(stringr)
 
-example <- "amenity=cafe"
+examples <- c("amenity=cafe", "playground=playhouse", "highway=cycleway")
 
 ui <- fluidPage(
   titlePanel("item2iD"),
   sidebarLayout(
     sidebarPanel(
       textInput("tag", "Tag:", placeholder = "key=value"),
-      p("e.g.,", actionLink("example", example))
+      p(
+        "e.g.,",
+        actionLink("example1", examples[1]),
+        "·",
+        actionLink("example2", examples[2]),
+        "·",
+        actionLink("example3", examples[3])
+      )
     ),
     mainPanel(
       verbatimTextOutput("code")
@@ -17,8 +24,16 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
-  observeEvent(input$example, {
-    updateTextInput(inputId = "tag", value = example)
+  observeEvent(input$example1, {
+    updateTextInput(inputId = "tag", value = examples[1])
+  })
+
+  observeEvent(input$example2, {
+    updateTextInput(inputId = "tag", value = examples[2])
+  })
+
+  observeEvent(input$example3, {
+    updateTextInput(inputId = "tag", value = examples[3])
   })
 
   output$code <- renderText({
