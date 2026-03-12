@@ -1625,10 +1625,10 @@
       "checksum": "e39780a0172d33d8ec3f010e5a1b1df3"
     },
     "R/preset.R": {
-      "checksum": "5bf8391e68699bf4b13e0d1017235e5c"
+      "checksum": "ef925769450dfbb78361837cf48f230d"
     },
     "R/utils.R": {
-      "checksum": "1b0d4ea58c39998091a87137cd38eec8"
+      "checksum": "019d28d03f9ef0f0f254c2ac70e21254"
     },
     "R/wiki_api.R": {
       "checksum": "7af9664d9d614e5519fcb2c52b09df80"

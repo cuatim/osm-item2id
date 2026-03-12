@@ -5,7 +5,7 @@ plain_string <- function(x) {
 }
 
 valid_tag <- function(x) {
-  stringr::str_detect(x, "^[a-z]+([_:][a-z]+)*=[a-z]+([_-][a-z]+)*$")
+  stringr::str_detect(x, "^[a-z]+([_:][a-z]+)*=[a-zA-Z]+([_ -][a-z]+)*$")
 }
 
 as_json <- function(x) {
