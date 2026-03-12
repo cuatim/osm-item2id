@@ -19,17 +19,25 @@ ui <- fluidPage(
       p(
         "e.g.,",
         actionLink("example1", examples[1]),
-        "·",
+        "•",
         actionLink("example2", examples[2]),
-        "·",
+        "•",
         actionLink("example3", examples[3])
+      ),
+      hr(),
+      p(
+        a("Learn more", href = glue::glue("{i2i_repo}#creating-a-new-preset")),
+        "•",
+        a("Source code", href = i2i_repo),
+        "(MIT)",
+        "•",
+        a("Report issue", href = glue::glue("{i2i_repo}/issues"))
       )
     ),
     mainPanel(
       uiOutput("header"),
       verbatimTextOutput("code"),
       uiOutput("footer"),
-      p(a("Help", href = "https://github.com/cuatim/osm-item2id#creating-a-new-preset"))
     )
   )
 )
