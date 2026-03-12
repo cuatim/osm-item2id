@@ -29,6 +29,6 @@ shiny::runGitHub("osm-item2id", "cuatim", subdir = "i2i-shiny")
     * `name`: This is just the value of the tag. May be too simple.
     * `terms`: Always empty. Fill manually or delete if not needed.
     * `icon`: Always empty. [Fill manually](https://github.com/ideditor/schema-builder/blob/main/ICONS.md).
-    * `fields`/`moreFields`: All keys from the [combination property](https://wiki.openstreetmap.org/wiki/Property:P46) are placed into `moreFields`. Consider moving some to `fields` where appropriate. [Often other presets are referenced instead of listing all fields manually.](https://github.com/ideditor/schema-builder?tab=readme-ov-file#fieldsmorefields) Remove fields not implemented in iD (from the draft only, not the data item).
+    * `fields`/`moreFields`: All keys from the [combination property](https://wiki.openstreetmap.org/wiki/Property:P46) are placed into `moreFields`. Consider reordering and/or moving some to `fields` where appropriate. [Often other presets are referenced instead of listing all fields manually.](https://github.com/ideditor/schema-builder?tab=readme-ov-file#fieldsmorefields) Remove fields not implemented in iD (from the draft only, not the data item).
     * `aliases`, `tags`, and `geometry`: Should be correct already. If not, update the underlying data item.
     * Add [additional data](https://github.com/ideditor/schema-builder#preset-properties) as needed.
