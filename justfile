@@ -2,6 +2,7 @@ default: manifest
 
 format:
     just --fmt --unstable
+    taplo fmt air.toml
     air format .
 
 manifest: format
