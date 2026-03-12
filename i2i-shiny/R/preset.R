@@ -28,6 +28,7 @@ to_preset <- function(item, get_item_callback = get_item) {
   name_from_alias <- aliases[plain_string(aliases) %in% plain_string(name)]
   if (rlang::is_string(name_from_alias)) {
     name <- name_from_alias
+    aliases <- aliases[!aliases %in% name_from_alias]
   }
 
   tags <-
