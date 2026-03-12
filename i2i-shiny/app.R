@@ -59,7 +59,7 @@ server <- function(input, output) {
   })
 
   tag <- reactive({
-    tag <- input$tag |> stringr::str_trim()
+    tag <- input$tag |> stringr::str_trim() |> stringr::str_remove(".*Tag:")
 
     req(stringr::str_detect(tag, "^.+=.+$"))
 
