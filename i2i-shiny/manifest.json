@@ -1335,13 +1335,13 @@
   },
   "files": {
     "app.R": {
-      "checksum": "3f92fc5345c0d9ed809884e75dc723c0"
+      "checksum": "d7f5804b014562e5ebe04c863af139c0"
     },
     "R/utils.R": {
       "checksum": "ae876ec2fadab5d3ed12e665b0047b7b"
     },
     "R/wiki_api.R": {
-      "checksum": "d4a99d11e71755df0a0330890336096d"
+      "checksum": "6c24149f9a23e3221f0a6eada846a471"
     }
   },
   "users": null

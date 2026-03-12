@@ -1,11 +1,10 @@
-get_item_by_title <- function(title) {
+item_api <- function(...) {
   req <-
     httr2::request("https://wiki.openstreetmap.org/w/api.php") |>
     httr2::req_url_query(
       action = "wbgetentities",
       format = "json",
-      sites = "wiki",
-      titles = title
+      ...
     )
 
   resp <- httr2::req_perform(req)
@@ -13,4 +12,17 @@ get_item_by_title <- function(title) {
   resp |>
     httr2::resp_body_json() |>
     purrr::chuck("entities", 1)
+}
+
+get_item <- function(x) {
+  if (stringr::str_detect(x, "^Q[0-9]+$")) {
+    item_api(
+      ids = x
+    )
+  } else {
+    item_api(
+      sites = "wiki",
+      titles = x
+    )
+  }
 }
