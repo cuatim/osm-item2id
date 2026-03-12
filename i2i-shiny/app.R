@@ -5,14 +5,17 @@ id_repo <- "https://github.com/openstreetmap/id-tagging-schema"
 examples <- c("amenity=cafe", "playground=playhouse", "highway=cycleway")
 
 ui <- fluidPage(
-  titlePanel(span(
-    a("i2i", href = i2i_repo),
-    "- convert ",
-    a("OSM wikibase data items", href = "https://wiki.openstreetmap.org/wiki/Data_items"),
-    "to",
-    a("iD Tagging Schema", href = id_repo),
-    "entries"
-  )),
+  titlePanel(
+    title = span(
+      a("i2i", href = i2i_repo),
+      "- convert ",
+      a("OSM wikibase data items", href = "https://wiki.openstreetmap.org/wiki/Data_items"),
+      "to",
+      a("iD Tagging Schema", href = id_repo),
+      "entries"
+    ),
+    windowTitle = "i2i"
+  ),
   sidebarLayout(
     sidebarPanel(
       textInput("tag", "Tag:", placeholder = "key=value"),
